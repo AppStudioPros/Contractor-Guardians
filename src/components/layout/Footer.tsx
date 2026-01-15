@@ -37,17 +37,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-6">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center">
               <Image
                 src="https://customer-assets.emergentagent.com/job_webrebuild-1/artifacts/fv63libr_CG%20logo%20no%20bg.png"
                 alt="Contractor Guardians"
-                width={56}
-                height={56}
-                className="w-14 h-14"
+                width={64}
+                height={64}
+                className="w-16 h-16"
               />
-              <span className="font-headline text-xl text-white">
-                CONTRACTOR GUARDIANS
-              </span>
             </Link>
             <p className="text-slate text-sm leading-relaxed max-w-sm">
               Protecting homeowners and empowering contractors with verified
