@@ -63,6 +63,10 @@ export function HeroSection() {
               Verified Contractors.
               <br />
               <span className="text-gold">Protected Projects.</span>
+              <br />
+              <span className="text-base md:text-lg font-normal normal-case tracking-normal text-gray-400 block mt-4">
+                Confidence for Homeowners, Fairness for Contractors.
+              </span>
             </motion.h1>
             
             <motion.p
@@ -71,10 +75,7 @@ export function HeroSection() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-lg md:text-xl text-gray-400 mb-8 max-w-xl leading-relaxed"
             >
-              Contractor Guardians protects homeowners from fraud while 
-              empowering contractors with credibility. Our platform uses 
-              smart contracts, escrow payments, and backup crews to ensure 
-              every project succeeds.
+              Contractor Guardians aims to protect consumers from fraudulent practices that lead to millions in losses annually in the U.S. Working with trusted partners nationwide, we help build, repair, and provide 2,000+ homes each year—while creating opportunities for the next generation through trade schools and vocational training programs founded on faith, freedom, and craftsmanship.
             </motion.p>
 
             {/* Highlights */}
