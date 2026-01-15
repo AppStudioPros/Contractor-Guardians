@@ -30,8 +30,7 @@ export function VideoSection() {
             Watch Our Explainer
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            See how Contractor Guardians makes your interactions with clients and 
-            contractors organized, professional, and secure.
+            Making your interactions with clients and contractors organized and professional with just a couple of clicks.
           </p>
         </motion.div>
 
