@@ -38,7 +38,7 @@ const config: Config = {
         info: '#0EA5E9',
       },
       fontFamily: {
-        headline: ['var(--font-bebas)', 'Oswald', 'sans-serif'],
+        headline: ['var(--font-barlow)', 'Barlow Condensed', 'sans-serif'],
         body: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       animation: {
