@@ -32,7 +32,7 @@ const sections = [
     icon: ShieldCheck,
     title: 'Our Commitment',
     description:
-      "Every project reflects our belief that hard work and integrity are America's strength. With professionalism and compassion, we empower youth and strengthen communities—one project at a time.",
+      "Every project reflects our belief that faith, freedom, and hard work are America's strength. With professionalism, integrity, and compassion, we honor veterans, empower youth, and strengthen communities—one project at a time.",
     items: [
       'Transparent processes & milestone payments',
       'Quality assurance & independent inspections',
