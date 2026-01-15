@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Bebas_Neue } from 'next/font/google';
+import { Inter, Barlow_Condensed } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
@@ -12,10 +12,10 @@ const inter = Inter({
   display: 'swap',
 });
 
-const bebasNeue = Bebas_Neue({
-  weight: '400',
+const barlowCondensed = Barlow_Condensed({
+  weight: ['600', '700', '800'],
   subsets: ['latin'],
-  variable: '--font-bebas',
+  variable: '--font-barlow',
   display: 'swap',
 });
 
@@ -95,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebasNeue.variable}`}>
+    <html lang="en" className={`${inter.variable} ${barlowCondensed.variable}`}>
       <body className="min-h-screen flex flex-col">
         <a
           href="#main-content"
