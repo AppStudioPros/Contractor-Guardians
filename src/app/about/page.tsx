@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { AboutHero } from './components/AboutHero';
 import { MissionSection } from './components/MissionSection';
 import { WhatWeDoSection } from './components/WhatWeDoSection';
-import { TeamSection } from './components/TeamSection';
 import { CTASection } from '@/components/sections';
 
 export const metadata: Metadata = {
@@ -17,7 +16,6 @@ export default function AboutPage() {
       <AboutHero />
       <MissionSection />
       <WhatWeDoSection />
-      <TeamSection />
       <CTASection
         title="Ready to Partner with Us?"
         description="Whether you're a homeowner, contractor, or investor, we're here to help you succeed."
