@@ -229,6 +229,66 @@ export function InvestorContent() {
         </div>
       </section>
 
+      {/* Colorado Market Projections */}
+      <section className="py-20 bg-guardian-steel">
+        <div className="container-lg">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold uppercase text-white mb-4">
+              Colorado <span className="text-gold">Alone</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              The Colorado home services market is ~$12B/year. Here&apos;s what capturing just 5-10% looks like — in one state.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+            {/* 5% Column */}
+            <div className="p-8 rounded-2xl border border-white/[0.06] bg-guardian-graphite/50">
+              <div className="text-center mb-6">
+                <div className="text-sm text-gray-500 uppercase tracking-wider">5% Market Capture</div>
+                <div className="text-4xl font-bold text-gold mt-2">~$9M<span className="text-lg text-gray-500">/yr</span></div>
+              </div>
+              <ul className="space-y-3 text-sm">
+                <li className="flex justify-between text-gray-300"><span>Contractor Subscriptions</span><span className="text-gold font-bold">$5.4M</span></li>
+                <li className="flex justify-between text-gray-300"><span>À La Carte Protection</span><span className="text-gold font-bold">$2.6M</span></li>
+                <li className="flex justify-between text-gray-300"><span>Insurance Referrals</span><span className="text-gold font-bold">$540K</span></li>
+                <li className="flex justify-between text-gray-300"><span>Real Estate Referrals</span><span className="text-gold font-bold">$180K</span></li>
+                <li className="flex justify-between text-gray-300"><span>Inspector/Architect Listings</span><span className="text-gold font-bold">$240K</span></li>
+              </ul>
+              <div className="mt-4 pt-4 border-t border-white/[0.06] text-center text-xs text-gray-500">
+                ~1,750 contractors · ~3,500 protected projects
+              </div>
+            </div>
+
+            {/* 10% Column */}
+            <div className="p-8 rounded-2xl border border-gold/30 bg-gold/5 relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-guardian-black text-xs font-bold uppercase px-4 py-1 rounded-full">Target</div>
+              <div className="text-center mb-6">
+                <div className="text-sm text-gray-500 uppercase tracking-wider">10% Market Capture</div>
+                <div className="text-4xl font-bold text-gold mt-2">~$18M<span className="text-lg text-gray-500">/yr</span></div>
+              </div>
+              <ul className="space-y-3 text-sm">
+                <li className="flex justify-between text-gray-300"><span>Contractor Subscriptions</span><span className="text-gold font-bold">$10.8M</span></li>
+                <li className="flex justify-between text-gray-300"><span>À La Carte Protection</span><span className="text-gold font-bold">$5.3M</span></li>
+                <li className="flex justify-between text-gray-300"><span>Insurance Referrals</span><span className="text-gold font-bold">$1.1M</span></li>
+                <li className="flex justify-between text-gray-300"><span>Real Estate Referrals</span><span className="text-gold font-bold">$360K</span></li>
+                <li className="flex justify-between text-gray-300"><span>Inspector/Architect Listings</span><span className="text-gold font-bold">$480K</span></li>
+              </ul>
+              <div className="mt-4 pt-4 border-t border-gold/20 text-center text-xs text-gray-500">
+                ~3,500 contractors · ~7,000 protected projects
+              </div>
+            </div>
+          </div>
+
+          {/* Scale callout */}
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-lg text-gray-400">
+              Colorado is <strong className="text-white">2% of the U.S. market.</strong> Scale to 10 states: <span className="text-gold font-bold">$90-180M/yr.</span> National: the math gets exponential.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* The Ecosystem Advantage */}
       <section className="py-20 bg-guardian-black relative">
         <div className="absolute inset-0 blueprint-bg opacity-20" />
