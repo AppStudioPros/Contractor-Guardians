@@ -3,49 +3,49 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Smartphone, Eye, FileText, Shield, Users, BadgeCheck } from 'lucide-react';
+import { Shield, Eye, FileText, Users, BadgeCheck, DollarSign } from 'lucide-react';
 
 const features = [
   {
-    icon: Smartphone,
-    title: 'All in One App',
+    icon: BadgeCheck,
+    title: 'Verified Contractors',
     description:
-      'Contractor Guardians simplifies home improvement by combining vetted contractors, secure digital contracts, milestone payments, live progress monitoring, and DIY resources—all in one app. Whether you\'re a homeowner or a contractor, our platform ensures transparency, quality, and peace of mind every step of the way.',
+      'Every contractor is background-checked, licensed, and insured. No guesswork — we\'ve already done the vetting so you can hire with confidence.',
     size: 'large',
-  },
-  {
-    icon: Eye,
-    title: 'Transparency',
-    description:
-      'Contractor Guardians offers live camera access and real-time photo and video updates from contractors, ensuring clear communication and a complete visual record of your project\'s progress.',
-    size: 'small',
-  },
-  {
-    icon: FileText,
-    title: 'Digital and Smart Contracts',
-    description:
-      'Contractor Guardians uses digital contracts and milestone-based payments to ensure alignment and accountability. Secure, signed contracts and clear milestones help prevent disputes.',
-    size: 'small',
   },
   {
     icon: Shield,
     title: 'Escrow Protection',
     description:
-      'Your funds are protected until work is verified and approved. Our escrow system gives homeowners confidence while ensuring contractors get paid on time.',
+      'Your money is held in escrow until work is verified and approved. Milestone-based payments mean you only pay for completed work.',
+    size: 'small',
+  },
+  {
+    icon: FileText,
+    title: 'Digital Contracts',
+    description:
+      'Legally binding digital contracts with clear milestones, timelines, and deliverables. Both sides know exactly what\'s expected.',
+    size: 'small',
+  },
+  {
+    icon: Eye,
+    title: 'Real-Time Monitoring',
+    description:
+      'Live camera access and photo/video updates from your job site. See progress as it happens — no more wondering what\'s going on at your property.',
     size: 'small',
   },
   {
     icon: Users,
-    title: 'Backup Crew Service',
+    title: 'Backup Crew Guarantee',
     description:
-      'If a contractor fails to deliver, we have backup crews ready to complete your project with our exclusive job guarantee.',
+      'If a contractor fails to deliver, our backup crews step in to complete your project. That\'s the Contractor Guardians guarantee.',
     size: 'small',
   },
   {
-    icon: BadgeCheck,
-    title: 'Verified Contractors',
+    icon: DollarSign,
+    title: 'Always Free for Homeowners',
     description:
-      'Every contractor is background-checked, licensed, and insured. We connect vetted, values-driven builders with mission-aligned projects.',
+      'Browse contractors, post projects, and get matched — completely free. Premium protection features like escrow and guaranteed work are available à la carte when you need them.',
     size: 'large',
   },
 ];
@@ -58,60 +58,47 @@ export function FeaturesSection() {
     <section ref={ref} id="features" className="py-24 md:py-32 bg-guardian-steel relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[150px]" />
-      
+
       <div className="container-lg relative z-10">
-        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-gold text-sm font-semibold uppercase tracking-wider mb-4">
-            Platform Features
-          </span>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold uppercase tracking-tight text-white mb-6">
-            Everything You Need
+          <h2 className="text-4xl md:text-5xl font-headline font-bold uppercase text-white mb-4">
+            Why <span className="text-gold">Contractor Guardians?</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            A comprehensive platform designed to protect homeowners and empower contractors
+            We built the platform we wished existed when hiring contractors. Protection for homeowners, fair opportunities for professionals.
           </p>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`group relative bg-guardian-graphite border border-white/5 rounded-xl p-8 hover:border-gold/30 transition-all duration-500 ${
-                feature.size === 'large' ? 'md:col-span-2 lg:col-span-1' : ''
-              }`}
-            >
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 rounded-xl bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              {/* Content */}
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6 group-hover:bg-gold/20 group-hover:scale-110 transition-all duration-300">
-                  <feature.icon className="w-7 h-7 text-gold" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.1 * index, duration: 0.5 }}
+                className={`group p-8 rounded-2xl border border-white/[0.06] bg-guardian-graphite/50 hover:border-gold/30 transition-all duration-300 ${
+                  feature.size === 'large' ? 'lg:col-span-1' : ''
+                }`}
+              >
+                <div className="w-12 h-12 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors">
+                  <Icon className="w-6 h-6 text-gold" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gold transition-colors duration-300">
+                <h3 className="text-xl font-headline font-bold uppercase text-white mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-gray-400 leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
-
-              {/* Corner Accent */}
-              <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-xl">
-                <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

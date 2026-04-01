@@ -2,9 +2,6 @@ import {
   HeroSection,
   FeaturesSection,
   HowItWorksSection,
-  AppShowcaseSection,
-  ScreenshotsSection,
-  VideoSection,
   PricingSection,
   TestimonialsSection,
   CTASection,
@@ -16,16 +13,13 @@ export default function HomePage() {
       <HeroSection />
       <FeaturesSection />
       <HowItWorksSection />
-      <AppShowcaseSection />
-      <ScreenshotsSection />
-      <VideoSection />
       <PricingSection />
       <TestimonialsSection />
       <CTASection
-        title="Ready to Transform Your Project Experience?"
-        description="Join thousands of homeowners and contractors who trust Contractor Guardians for their projects. Get started today!"
-        primaryCta={{ label: 'Contact Us', href: '/contact' }}
-        secondaryCta={{ label: 'Learn More', href: '/about' }}
+        title="Ready to Get Started?"
+        description="Whether you're a homeowner looking for trusted contractors or a professional looking to grow — Contractor Guardians has you covered."
+        primaryCta={{ label: "I Need a Contractor", href: '/homeowners' }}
+        secondaryCta={{ label: "I'm a Professional", href: '/contractors' }}
       />
     </>
   );

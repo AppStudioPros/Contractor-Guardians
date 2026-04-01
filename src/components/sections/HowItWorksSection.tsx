@@ -3,39 +3,32 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import Image from 'next/image';
-import { UserPlus, Upload, MessageSquare, ScanLine, ShieldCheck } from 'lucide-react';
+import { Search, FileText, GitCompare, ShieldCheck } from 'lucide-react';
 
 const steps = [
   {
     number: '01',
-    icon: UserPlus,
-    title: 'Create Your Account',
-    description: 'Sign up in minutes with basic information. Choose whether you\'re a homeowner looking for contractors or a contractor ready to grow your business.',
+    icon: Search,
+    title: 'Browse or Post',
+    description: 'Search contractors by category and location, or post your project and let our AI match you with the best professionals.',
   },
   {
     number: '02',
-    icon: Upload,
-    title: 'Upload Your Project',
-    description: 'Describe your project needs, upload photos, and set your budget. Our system matches you with verified, qualified contractors in your area.',
+    icon: GitCompare,
+    title: 'Compare & Choose',
+    description: 'Review verified profiles, ratings, and bids. Every contractor is background-checked and licensed — no surprises.',
   },
   {
     number: '03',
-    icon: MessageSquare,
-    title: 'Connect & Communicate',
-    description: 'Chat directly with contractors, review proposals, and ask questions. All communication is logged for transparency and protection.',
+    icon: FileText,
+    title: 'Sign & Protect',
+    description: 'Digital contracts lock in scope, milestones, and cost. Add escrow protection and guaranteed work coverage à la carte.',
   },
   {
     number: '04',
-    icon: ScanLine,
-    title: 'Digital Contracts',
-    description: 'Sign secure digital contracts with clear milestones and payment schedules. Smart contracts ensure everyone stays aligned throughout the project.',
-  },
-  {
-    number: '05',
     icon: ShieldCheck,
-    title: 'Protected Payments',
-    description: 'Funds are held in escrow and released only when milestones are completed. Our Guardian Guarantee ensures your project is protected.',
+    title: 'Monitor & Pay',
+    description: 'Track progress with real-time updates. Milestone-based payments release from escrow only when work is verified and approved.',
   },
 ];
 
@@ -44,58 +37,63 @@ export function HowItWorksSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="section section-dark">
-      <div className="container-lg">
-        {/* Section Header */}
+    <section ref={ref} id="how-it-works" className="py-24 md:py-32 bg-guardian-black relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 blueprint-bg opacity-30" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px]" />
+
+      <div className="container-lg relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title">How to Get Started</h2>
-          <p className="section-subtitle">
-            Embarking on your project journey is a breeze! Follow these simple steps to get started
+          <h2 className="text-4xl md:text-5xl font-headline font-bold uppercase text-white mb-4">
+            How It <span className="text-gold">Works</span>
+          </h2>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            Four steps from project idea to protected completion. Simple for homeowners, fair for contractors.
           </p>
         </motion.div>
 
-        {/* Steps Grid */}
-        <div className="grid md:grid-cols-5 gap-6 mb-16">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`card card-hover text-center ${index % 2 === 1 ? 'md:mt-8' : ''}`}
-            >
-              <div className="text-4xl font-headline text-gold/30 mb-4">{step.number}</div>
-              <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-4">
-                <step.icon className="w-7 h-7 text-gold" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-3">{step.title}</h3>
-              <p className="text-sm text-slate leading-relaxed">{step.description}</p>
-            </motion.div>
-          ))}
-        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.15 * index, duration: 0.5 }}
+                className="relative text-center group"
+              >
+                {/* Connector line */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-16 left-[60%] w-[80%] h-px bg-gradient-to-r from-gold/30 to-transparent" />
+                )}
 
-        {/* App Preview Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="relative max-w-4xl mx-auto"
-        >
-          <Image
-            src="https://cdn.prod.website-files.com/66c71f539ad0e77e2e7bf4dd/66d94ab7eb129d1a1754a054_img.webp"
-            alt="Contractor Guardians App Interface"
-            width={900}
-            height={600}
-            className="w-full h-auto rounded-2xl shadow-2xl"
-          />
-          {/* Glow */}
-          <div className="absolute inset-0 bg-gold/5 rounded-2xl blur-3xl -z-10 scale-105" />
-        </motion.div>
+                {/* Number + Icon */}
+                <div className="relative mx-auto w-24 h-24 mb-6">
+                  <div className="absolute inset-0 rounded-2xl bg-gold/10 border border-gold/20 group-hover:bg-gold/20 transition-colors" />
+                  <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-gold flex items-center justify-center">
+                    <span className="text-xs font-bold text-guardian-black">{step.number}</span>
+                  </div>
+                  <div className="relative flex items-center justify-center h-full">
+                    <Icon className="w-10 h-10 text-gold" />
+                  </div>
+                </div>
+
+                <h3 className="text-lg font-headline font-bold uppercase text-white mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {step.description}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

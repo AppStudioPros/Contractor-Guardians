@@ -3,56 +3,73 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Check } from 'lucide-react';
+import { Check, Shield, Home, Wrench } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
-const pricingPlans = [
+const homeownerFeatures = [
+  'Browse all contractors — free',
+  'Post unlimited projects — free',
+  'AI-powered matching — free',
+  'Read reviews & ratings — free',
+  'Get multiple bids — free',
+];
+
+const premiumAddOns = [
+  { name: 'Escrow Payment Protection', desc: 'Milestone-based, funds held until verified' },
+  { name: 'Guaranteed Work Coverage', desc: 'Backup crew if contractor doesn\'t deliver' },
+  { name: 'Project Insurance', desc: 'Via our insurance partner network' },
+  { name: 'Real-Time Monitoring', desc: 'Camera access + progress updates' },
+];
+
+const contractorPlans = [
   {
     name: 'Starter',
     price: 'Free',
-    description: 'Organize across all apps by hand',
+    description: 'Get discovered on the platform',
     features: [
-      'Free to download no cost',
-      'Watch How To videos',
-      'Explore Services and contractors',
-      'Read up on policies & operations',
+      'Basic profile listing',
+      'Show up in search results',
+      'Receive organic inquiries',
+      'Customer reviews & ratings',
     ],
     isPopular: false,
-    ctaLabel: 'Get Started',
+    ctaLabel: 'Create Profile',
+    ctaHref: '/contractors',
   },
   {
-    name: 'Professional',
-    price: '$19.99',
-    period: '/month',
-    annualInfo: 'or $199 annually — You save $39.98',
-    description: 'Organize across all apps by hand',
+    name: 'Pro',
+    price: '$199',
+    period: '/mo',
+    description: 'Quality leads, no per-lead fees',
     features: [
-      'Everything in the free version',
-      'Ability to choose/contact contractors',
-      'Use of Digital contracts and Milestones',
-      'Access to on-site cameras',
-      'Text and status updates within App',
-      'Secure payment portal with application',
+      'Everything in Starter',
+      'Verified Pro badge',
+      'Priority in AI matching',
+      'Respond to project posts',
+      'Analytics dashboard',
+      'No per-lead charges — ever',
     ],
     isPopular: true,
-    ctaLabel: 'Get Started',
+    ctaLabel: 'Go Pro',
+    ctaHref: '/contractors',
   },
   {
-    name: 'Enterprise',
-    price: '$39.99',
-    period: '/month',
-    annualInfo: 'or $399 annually — You save $80',
-    description: 'Organize across all apps by hand',
+    name: 'Elite',
+    price: '$399',
+    period: '/mo',
+    description: 'The serious contractor\'s advantage',
     features: [
-      'Everything in free version',
-      'Everything in Pro version',
-      'Access to smart contracts',
-      'Our Exclusive Job Guarantee',
-      'Premium Customer Service',
-      'Ability to pay with Crypto',
+      'Everything in Pro',
+      'Featured placement',
+      'CG Certified badge',
+      'Guaranteed job eligibility',
+      'Backup crew program access',
+      'Dedicated support',
     ],
     isPopular: false,
-    ctaLabel: 'Get Started',
+    ctaLabel: 'Go Elite',
+    ctaHref: '/contractors',
   },
 ];
 
@@ -61,135 +78,139 @@ export function PricingSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} id="pricing" className="section section-dark">
-      <div className="container-lg">
-        {/* Section Header */}
+    <section ref={ref} id="pricing" className="py-24 md:py-32 bg-guardian-steel relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[150px]" />
+
+      <div className="container-lg relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title">Choose Your Plan</h2>
-          <p className="section-subtitle">
-            14 days unlimited free trial. No contract or credit card required.
+          <h2 className="text-4xl md:text-5xl font-headline font-bold uppercase text-white mb-4">
+            Simple <span className="text-gold">Pricing</span>
+          </h2>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            Free for homeowners. Fair for contractors. No hidden fees, no per-lead charges, no surprises.
           </p>
         </motion.div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {pricingPlans.map((plan, index) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.15, duration: 0.5 }}
-              className={cn(
-                'relative rounded-2xl p-8 transition-all duration-300',
-                plan.isPopular
-                  ? 'bg-shield-blue border-2 border-shield-blue scale-105 shadow-xl shadow-shield-blue/20'
-                  : 'bg-guardian-steel border border-white/10 hover:border-gold/30'
-              )}
-            >
-              {/* Popular Badge */}
-              {plan.isPopular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-gold text-guardian-black text-sm font-bold px-4 py-1 rounded-full">
-                    Most Popular
-                  </span>
-                </div>
-              )}
+        {/* Homeowner Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Home className="w-6 h-6 text-gold" />
+            <h3 className="text-2xl font-headline font-bold uppercase text-white">For Homeowners</h3>
+            <span className="bg-gold/20 text-gold text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Always Free</span>
+          </div>
 
-              {/* Plan Header */}
-              <div className="text-center mb-6">
-                <h3
-                  className={cn(
-                    'text-2xl font-bold mb-2',
-                    plan.isPopular ? 'text-white' : 'text-gold'
-                  )}
-                >
-                  {plan.name}
-                </h3>
-                <p
-                  className={cn(
-                    'text-sm',
-                    plan.isPopular ? 'text-white/70' : 'text-slate'
-                  )}
-                >
-                  {plan.description}
-                </p>
-              </div>
-
-              {/* Price */}
-              <div className="text-center mb-6">
-                <div className="flex items-baseline justify-center gap-1">
-                  <span
-                    className={cn(
-                      'text-5xl font-bold',
-                      plan.isPopular ? 'text-white' : 'text-white'
-                    )}
-                  >
-                    {plan.price}
-                  </span>
-                  {plan.period && (
-                    <span
-                      className={cn(
-                        'text-lg',
-                        plan.isPopular ? 'text-white/70' : 'text-slate'
-                      )}
-                    >
-                      {plan.period}
-                    </span>
-                  )}
-                </div>
-                {plan.annualInfo && (
-                  <p
-                    className={cn(
-                      'text-sm mt-2',
-                      plan.isPopular ? 'text-white/70' : 'text-slate'
-                    )}
-                  >
-                    {plan.annualInfo}
-                  </p>
-                )}
-              </div>
-
-              {/* Features */}
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <Check
-                      className={cn(
-                        'w-5 h-5 mt-0.5 flex-shrink-0',
-                        plan.isPopular ? 'text-gold' : 'text-success'
-                      )}
-                    />
-                    <span
-                      className={cn(
-                        'text-sm',
-                        plan.isPopular ? 'text-white' : 'text-slate'
-                      )}
-                    >
-                      {feature}
-                    </span>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Free Features */}
+            <div className="p-8 rounded-2xl border border-gold/20 bg-gold/5">
+              <div className="text-3xl font-bold text-gold mb-2">$0</div>
+              <p className="text-sm text-gray-400 mb-6">Find and hire contractors at no cost</p>
+              <ul className="space-y-3">
+                {homeownerFeatures.map((feature) => (
+                  <li key={feature} className="flex items-center gap-3 text-sm text-gray-300">
+                    <Check className="w-4 h-4 text-gold flex-shrink-0" />
+                    {feature}
                   </li>
                 ))}
               </ul>
+            </div>
 
-              {/* CTA Button */}
-              <button
+            {/* Premium Add-Ons */}
+            <div className="p-8 rounded-2xl border border-white/[0.06] bg-guardian-graphite/50">
+              <div className="text-lg font-bold text-white mb-2">Premium Protection</div>
+              <p className="text-sm text-gray-400 mb-6">Add protection à la carte — only pay for what you need</p>
+              <ul className="space-y-4">
+                {premiumAddOns.map((addon) => (
+                  <li key={addon.name} className="flex items-start gap-3">
+                    <Shield className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-sm font-semibold text-white">{addon.name}</span>
+                      <p className="text-xs text-gray-500">{addon.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Contractor Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Wrench className="w-6 h-6 text-gold" />
+            <h3 className="text-2xl font-headline font-bold uppercase text-white">For Contractors</h3>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {contractorPlans.map((plan, index) => (
+              <div
+                key={plan.name}
                 className={cn(
-                  'w-full py-3 rounded-full font-bold transition-all duration-300',
+                  'p-8 rounded-2xl border transition-all duration-300',
                   plan.isPopular
-                    ? 'bg-gold text-guardian-black hover:bg-gold-hover'
-                    : 'bg-white/10 text-white hover:bg-gold hover:text-guardian-black'
+                    ? 'border-gold/40 bg-gold/5 shadow-[0_0_40px_rgba(248,171,32,0.1)] relative'
+                    : 'border-white/[0.06] bg-guardian-graphite/50 hover:border-gold/20'
                 )}
               >
-                {plan.ctaLabel}
-              </button>
-            </motion.div>
-          ))}
-        </div>
+                {plan.isPopular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-guardian-black text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">
+                    Most Popular
+                  </div>
+                )}
+
+                <div className="mb-6">
+                  <h4 className="text-lg font-headline font-bold uppercase text-white">{plan.name}</h4>
+                  <div className="flex items-baseline gap-1 my-2">
+                    <span className="text-3xl font-bold text-gold">{plan.price}</span>
+                    {plan.period && <span className="text-sm text-gray-500">{plan.period}</span>}
+                  </div>
+                  <p className="text-sm text-gray-400">{plan.description}</p>
+                </div>
+
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-3 text-sm text-gray-300">
+                      <Check className="w-4 h-4 text-gold flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href={plan.ctaHref}
+                  className={cn(
+                    'block w-full text-center font-bold uppercase tracking-wide py-3 rounded-sm transition-all duration-300',
+                    plan.isPopular
+                      ? 'bg-gold text-guardian-black hover:bg-gold-hover shadow-[0_0_20px_rgba(248,171,32,0.2)]'
+                      : 'border border-white/20 text-white hover:border-gold hover:text-gold'
+                  )}
+                >
+                  {plan.ctaLabel}
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Anti-Angi pitch */}
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-500">
+              Tired of paying $15-80 per lead on Angi or Thumbtack? Our flat-rate plans mean <span className="text-gold font-semibold">no per-lead charges, ever.</span> Better leads. Better value.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

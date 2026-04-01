@@ -3,12 +3,12 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Shield, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Shield, ArrowRight, CheckCircle2, Home, Wrench } from 'lucide-react';
 
 const highlights = [
+  'Always Free for Homeowners — Browse, Post, Match',
   'Verified & Background-Checked Contractors',
-  'Escrow-Protected Payments',
-  'Real-Time Project Monitoring',
+  'Escrow-Protected Payments & Guaranteed Work',
 ];
 
 export function HeroSection() {
@@ -50,7 +50,7 @@ export function HeroSection() {
             >
               <Shield className="w-4 h-4 text-gold" />
               <span className="text-sm font-medium text-gold uppercase tracking-wider">
-                Trusted Protection
+                Every Home Project. Protected.
               </span>
             </motion.div>
 
@@ -60,13 +60,9 @@ export function HeroSection() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-5xl md:text-6xl lg:text-7xl font-headline font-bold uppercase tracking-tight text-white mb-6 leading-[0.95]"
             >
-              Verified Contractors.
+              Find. Hire.
               <br />
-              <span className="text-gold">Protected Projects.</span>
-              <br />
-              <span className="text-base md:text-lg font-normal normal-case tracking-normal text-gray-400 block mt-4">
-                Confidence for Homeowners, Fairness for Contractors.
-              </span>
+              <span className="text-gold">Protect.</span>
             </motion.h1>
             
             <motion.p
@@ -75,7 +71,7 @@ export function HeroSection() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-lg md:text-xl text-gray-400 mb-8 max-w-xl leading-relaxed"
             >
-              Contractor Guardians aims to protect consumers from fraudulent practices that lead to millions in losses annually in the U.S. Working with trusted partners nationwide, we help build, repair, and provide 2,000+ homes each year—while creating opportunities for the next generation through trade schools and vocational training programs founded on faith, freedom, and craftsmanship.
+              The home services platform that protects both sides. Homeowners get verified contractors, escrow-protected payments, and guaranteed work — <strong className="text-white">always free to use.</strong> Contractors get quality leads, fair pay, and a reputation that matters.
             </motion.p>
 
             {/* Highlights */}
@@ -93,7 +89,7 @@ export function HeroSection() {
               ))}
             </motion.ul>
 
-            {/* CTAs */}
+            {/* Dual Path CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -101,41 +97,36 @@ export function HeroSection() {
               className="flex flex-wrap items-center gap-4"
             >
               <Link 
-                href="/contact" 
+                href="/homeowners" 
                 className="group inline-flex items-center gap-2 bg-gold text-guardian-black font-bold uppercase tracking-wide px-8 py-4 rounded-sm hover:bg-gold-hover transition-all duration-300 shadow-[0_0_30px_rgba(248,171,32,0.25)]"
               >
-                Get Started
+                <Home className="w-5 h-5" />
+                I Need a Contractor
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
-                href="/about" 
+                href="/contractors" 
                 className="inline-flex items-center gap-2 border border-white/20 text-white font-semibold uppercase tracking-wide px-8 py-4 rounded-sm hover:border-gold hover:text-gold transition-all duration-300"
               >
-                Learn More
+                <Wrench className="w-5 h-5" />
+                I&apos;m a Professional
               </Link>
             </motion.div>
 
-            {/* App Store Buttons */}
+            {/* Ecosystem Partners Bar */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="flex items-center gap-4 mt-10 pt-8 border-t border-white/10"
+              className="flex flex-wrap items-center gap-4 mt-10 pt-8 border-t border-white/10"
             >
-              <span className="text-sm text-gray-500 uppercase tracking-wide">Coming Soon:</span>
-              <div className="flex items-center gap-3 opacity-60 cursor-not-allowed">
-                <div className="flex items-center gap-2 bg-guardian-graphite border border-white/10 rounded-lg px-3 py-2">
-                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                  </svg>
-                  <span className="text-xs text-white font-medium">App Store</span>
-                </div>
-                <div className="flex items-center gap-2 bg-guardian-graphite border border-white/10 rounded-lg px-3 py-2">
-                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor">
-                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                  </svg>
-                  <span className="text-xs text-white font-medium">Google Play</span>
-                </div>
+              <span className="text-sm text-gray-500 uppercase tracking-wide">Also on the platform:</span>
+              <div className="flex flex-wrap items-center gap-3">
+                {['Insurance Agents', 'Home Inspectors', 'Real Estate Pros', 'Architects'].map((partner) => (
+                  <span key={partner} className="text-xs text-gray-500 bg-white/5 border border-white/10 rounded-full px-3 py-1">
+                    {partner}
+                  </span>
+                ))}
               </div>
             </motion.div>
           </motion.div>
@@ -152,7 +143,7 @@ export function HeroSection() {
               <div className="relative aspect-[4/5] max-w-md mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <Image
                   src="https://cdn.prod.website-files.com/66c71f539ad0e77e2e7bf4dd/68b7821e3d1e11cd19a663a9_header.png"
-                  alt="Contractor Guardians App"
+                  alt="Contractor Guardians Platform"
                   fill
                   className="object-contain"
                   priority
@@ -166,8 +157,8 @@ export function HeroSection() {
                 transition={{ delay: 0.8, duration: 0.6 }}
                 className="absolute -right-8 top-1/4 bg-guardian-graphite/90 backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-xl"
               >
-                <div className="text-2xl font-bold text-gold">2,000+</div>
-                <div className="text-sm text-gray-400">Projects Annually</div>
+                <div className="text-2xl font-bold text-gold">12+</div>
+                <div className="text-sm text-gray-400">Service Categories</div>
               </motion.div>
 
               {/* Floating Trust Card */}
@@ -179,7 +170,7 @@ export function HeroSection() {
               >
                 <div className="flex items-center gap-2">
                   <Shield className="w-5 h-5 text-gold" />
-                  <span className="text-sm font-semibold text-white">100% Protected</span>
+                  <span className="text-sm font-semibold text-white">Escrow Protected</span>
                 </div>
               </motion.div>
 
