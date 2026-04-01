@@ -38,9 +38,9 @@ const milestones = [
 ];
 
 const team = [
-  { name: 'Corey Strange', role: 'CEO & Founder', bio: '20+ years in technology, construction, and government contracting. Built enterprise platforms for the VA. Oxford-educated strategist.' },
-  { name: 'William Mocas', role: 'CFO', bio: 'Financial strategy and operations. Results-driven with deep experience in scaling service businesses.' },
-  { name: 'Tonya Mocas', role: 'VP, Organizational Intelligence', bio: 'Operations, team building, and organizational design. The engine that makes the machine run.' },
+  { name: 'John Kennedy', role: 'CEO & Founder', bio: 'Visionary leader driving the transformation of the home services industry. Building the platform that protects homeowners and empowers contractors nationwide.' },
+  { name: 'Corey Strange', role: 'CTO', bio: '20+ years in technology, construction, and government contracting. Built enterprise platforms for the VA. Oxford-educated. The architect behind the platform.' },
+  { name: 'Kelsi Strange', role: 'AI Engineer & UI/UX', bio: 'Designing the intelligence and experience layer of Contractor Guardians. From AI-powered matching to the interfaces that make the platform intuitive.' },
 ];
 
 export function InvestorContent() {
