@@ -4,20 +4,21 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 const footerLinks = [
   {
-    title: 'Navigation',
+    title: 'Platform',
     links: [
-      { label: 'Home', href: '/' },
-      { label: 'About', href: '/about' },
-      { label: 'Investor', href: '/investor' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'For Homeowners', href: '/homeowners' },
+      { label: 'For Contractors', href: '/contractors' },
+      { label: 'For Insurance Agents', href: '/insurance' },
+      { label: 'For Real Estate Pros', href: '/realestate' },
     ],
   },
   {
-    title: 'Programs',
+    title: 'Company',
     links: [
-      { label: 'Contractors', href: '/contractors' },
-      { label: 'Affiliates', href: '/affiliates' },
-      { label: 'Tradeschool', href: '/tradeschool' },
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Investor', href: '/investor' },
+      { label: 'Trade School', href: '/tradeschool' },
     ],
   },
   {

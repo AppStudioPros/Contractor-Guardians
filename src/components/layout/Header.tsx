@@ -8,12 +8,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { label: 'Home', href: '/' },
+  { label: 'Homeowners', href: '/homeowners' },
+  { label: 'Contractors', href: '/contractors' },
+  { label: 'Insurance', href: '/insurance' },
+  { label: 'Real Estate', href: '/realestate' },
   { label: 'About', href: '/about' },
   { label: 'Investor', href: '/investor' },
-  { label: 'Contractors', href: '/contractors' },
-  { label: 'Affiliates', href: '/affiliates' },
-  { label: 'Tradeschool Program', href: '/tradeschool' },
 ];
 
 export function Header() {

@@ -1,27 +1,21 @@
 import type { Metadata } from 'next';
-import { AboutHero } from './components/AboutHero';
-import { MissionSection } from './components/MissionSection';
-import { WhatWeDoSection } from './components/WhatWeDoSection';
 import { CTASection } from '@/components/sections';
+import { AboutContent } from './components/AboutContent';
 
 export const metadata: Metadata = {
-  title: 'About Us',
-  description:
-    'Learn about Contractor Guardians - a faith-based construction network serving veterans, families, and communities across America.',
+  title: 'About Contractor Guardians',
+  description: 'The home services ecosystem that protects homeowners, empowers contractors, and connects the professionals who make projects possible.',
 };
 
 export default function AboutPage() {
   return (
     <>
-      <AboutHero />
-      <MissionSection />
-      <WhatWeDoSection />
+      <AboutContent />
       <CTASection
-        title="Ready to Partner with Us?"
-        description="Whether you're a homeowner, contractor, or investor, we're here to help you succeed."
-        primaryCta={{ label: 'Contact Us', href: '/contact' }}
-        secondaryCta={{ label: 'View Programs', href: '/tradeschool' }}
-        variant="centered"
+        title="Join the Ecosystem"
+        description="Whether you're a homeowner, contractor, insurance agent, or real estate professional — there's a place for you on Contractor Guardians."
+        primaryCta={{ label: "I Need a Contractor", href: '/homeowners' }}
+        secondaryCta={{ label: "I'm a Professional", href: '/contractors' }}
       />
     </>
   );
