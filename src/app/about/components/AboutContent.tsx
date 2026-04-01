@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Users, Eye, Heart, Target, Zap } from 'lucide-react';
+import { Shield, Users, Eye, Heart, Target, Zap, GraduationCap, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const values = [
   {
@@ -160,6 +161,64 @@ export function AboutContent() {
                 <p className="text-sm text-gray-400">{item.desc}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trade School */}
+      <section className="py-20 bg-guardian-steel">
+        <div className="container-lg">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-2 mb-6">
+                <GraduationCap className="w-4 h-4 text-gold" />
+                <span className="text-sm font-medium text-gold uppercase tracking-wider">CGTP</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-headline font-bold uppercase text-white mb-6">
+                Building Trades.<br /><span className="text-gold">Building Futures.</span>
+              </h2>
+              <p className="text-lg text-gray-400 leading-relaxed mb-6">
+                The Contractor Guardians Tradeschool Program (CGTP) is a non-profit tradeschool where students learn by building real homes and community projects — especially for veterans, people experiencing homelessness, and vulnerable families.
+              </p>
+              <p className="text-gray-400 leading-relaxed mb-8">
+                Starting with our Colorado flagship campus, CGTP provides a clear pathway from classroom to internship, apprenticeship, and licensing. Students don&apos;t just learn construction — they build real housing for people who need it. Every graduate enters the workforce with hands-on experience AND a portfolio of completed projects.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Hands-on trades training tied to real construction projects',
+                  'Housing delivered for veterans and vulnerable families',
+                  'Pathway from training to apprenticeship to licensing',
+                  'Focus on low-income, under-employed, and non-traditional students',
+                  'OSHA-aligned safety culture on every jobsite',
+                  'Designed to expand to 10+ states',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <Heart className="w-4 h-4 text-gold flex-shrink-0 mt-1" />
+                    <span className="text-sm text-gray-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/tradeschool"
+                className="group inline-flex items-center gap-2 bg-gold text-guardian-black font-bold uppercase tracking-wide px-6 py-3 rounded-sm hover:bg-gold-hover transition-all"
+              >
+                Learn More About CGTP
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: 'Service', desc: 'Every project gives back to the community' },
+                { label: 'Excellence', desc: 'Training aligned with industry & licensing standards' },
+                { label: 'Opportunity', desc: 'Focus on underserved and non-traditional students' },
+                { label: 'Accountability', desc: 'Transparent outcomes for jobs, wages, and impact' },
+              ].map((v) => (
+                <div key={v.label} className="p-5 rounded-xl border border-white/[0.06] bg-guardian-graphite/50">
+                  <h3 className="text-lg font-headline font-bold text-gold mb-2">{v.label}</h3>
+                  <p className="text-xs text-gray-400">{v.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
