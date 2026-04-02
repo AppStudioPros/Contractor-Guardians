@@ -13,6 +13,7 @@ const navLinks = [
   { label: 'Insurance', href: '/insurance' },
   { label: 'Real Estate', href: '/realestate' },
   { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Investor', href: '/investor' },
 ];
 
