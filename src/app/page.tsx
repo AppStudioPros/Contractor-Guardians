@@ -7,9 +7,23 @@ import {
   CTASection,
 } from '@/components/sections';
 
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Contractor Guardians',
+  url: 'https://contractorguardians.com',
+  email: 'info@contractorguardians.com',
+  description: 'Contractor Guardians protects homeowners and empowers contractors with verified professionals, digital contracts, escrow payments, and project monitoring.',
+  sameAs: [],
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
       <HeroSection />
       <FeaturesSection />
       <HowItWorksSection />

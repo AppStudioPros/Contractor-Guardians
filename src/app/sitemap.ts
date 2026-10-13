@@ -6,8 +6,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     '',
     '/about',
-    '/investor',
+    '/homeowners',
     '/contractors',
+    '/insurance',
+    '/realestate',
+    '/investor',
     '/affiliates',
     '/tradeschool',
     '/contact',
